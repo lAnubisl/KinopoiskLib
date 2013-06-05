@@ -1,0 +1,39 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="KinopoiskLib.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="RussianTitlePattern" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">&lt;title&gt;(?&lt;RussianTitle&gt;[^&lt;]*)&lt;/title&gt;</Value>
+    </Setting>
+    <Setting Name="OriginalTitlePattern" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">&lt;span itemprop="alternativeHeadline"&gt;(?&lt;OriginalTitle&gt;[^&lt;]*)&lt;/span&gt;</Value>
+    </Setting>
+    <Setting Name="DescriptionPattern" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">&lt;div class="brand_words" itemprop="description"&gt;(?&lt;Description&gt;[^/]*)&lt;/div&gt;</Value>
+    </Setting>
+    <Setting Name="ReleaseDatePattern" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">&lt;a href="/film/[0-9]+/dates/" title=""&gt;(?&lt;ReleaseDate&gt;[^/]*)&lt;/a&gt;</Value>
+    </Setting>
+    <Setting Name="ReleaseDateRusPattern" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">&lt;a href="/level/8/view/prem/year/[0-9]+/#[0-9]+"&gt;(?&lt;ReleaseDate&gt;[^/]*)&lt;/a&gt;</Value>
+    </Setting>
+    <Setting Name="GenrePattern" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">&lt;a href="/lists/m_act%5Bgenre%5D/[0-9]+/" &gt;(?&lt;Genre&gt;[а-я]+)&lt;/a&gt;</Value>
+    </Setting>
+    <Setting Name="KinopoiskSearchUrlPattern" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">http://www.kinopoisk.ru/index.php?first=yes&amp;kp_query={0}</Value>
+    </Setting>
+    <Setting Name="PosterUrlPattern" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">http://st.kinopoisk.ru/images/poster/sm_(?&lt;PosterId&gt;[0-9]+).jpg</Value>
+    </Setting>
+    <Setting Name="PersonPattern" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">&lt;a href="/name/(?&lt;PersonId&gt;[0-9]+)/"&gt;(?&lt;RussianName&gt;[^&lt;]+)&lt;/a&gt; &lt;span class="gray"&gt;(?&lt;EnglishName&gt;[^&lt;]+)&lt;/span&gt;</Value>
+    </Setting>
+    <Setting Name="DepartmentPattern" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">&lt;div style="padding-left: 20px; border-bottom: 2px solid #f60; font-size: 16px"&gt;(?&lt;Department&gt;[^&lt;]+)&lt;/div&gt;</Value>
+    </Setting>
+    <Setting Name="PhotoUrlPattern" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">http://tr-by.kinopoisk.ru/images/actor/{0}.jpg</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
