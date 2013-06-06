@@ -18,8 +18,9 @@ namespace KinopoiskLib
         private readonly IList<KinopoiskPoster> posters;
         private readonly IList<string> genres;
         private readonly DateTime releaseDate;
+        private readonly IList<long> relatedFilms; 
 
-        internal KinopoiskFilm(long kinopoiskId, string kinopoiskHtmlPage, string castsPage, string postersPage)
+        internal KinopoiskFilm(long kinopoiskId, string kinopoiskHtmlPage, string castsPage, string postersPage, string relatedMoviesPage)
         {
             if (string.IsNullOrEmpty(kinopoiskHtmlPage))
             {
@@ -67,7 +68,18 @@ namespace KinopoiskLib
             {
                 this.persons.Add(new KinopoiskPerson(match, FindDepartment(departments, match.Index)));
             }
+
+            this.relatedFilms = new List<long>();
+            foreach (Match match in Regex.Matches(relatedMoviesPage, Settings.Default.RelatedMoviesPattern))
+            {
+                this.relatedFilms.Add(Convert.ToInt64(match.Groups["KinopoiskId"].Value));
+            }
         }
+
+        public IList<long> RelatedFilms
+        {
+            get { return this.relatedFilms; }
+        } 
 
         public long KinopoiskId
         {
@@ -139,6 +151,32 @@ namespace KinopoiskLib
             }
 
             return null;
+        }
+
+        public override int GetHashCode()
+        {
+            return string.Format("KinopoiskFilm_{0}", kinopoiskId).GetHashCode();
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (obj == null)
+            {
+                return false;
+            }
+
+            var objT = obj as KinopoiskFilm;
+            if (objT == null)
+            {
+                return false;
+            }
+
+            return this.kinopoiskId == objT.kinopoiskId;
+        }
+
+        public override string ToString()
+        {
+            return string.Format("{0} / {1} ({2})", originalTitle, russianTitle, releaseDate.Year);
         }
     }
 }

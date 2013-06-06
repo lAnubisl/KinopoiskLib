@@ -35,5 +35,20 @@
     <Setting Name="PhotoUrlPattern" Type="System.String" Scope="Application">
       <Value Profile="(Default)">http://tr-by.kinopoisk.ru/images/actor/{0}.jpg</Value>
     </Setting>
+    <Setting Name="KinopoiskFilmDetailUrlPattern" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">http://www.kinopoisk.ru/film/{0}</Value>
+    </Setting>
+    <Setting Name="KinopoiskFilmActorsUrlPattern" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">http://www.kinopoisk.ru/film/{0}/cast/</Value>
+    </Setting>
+    <Setting Name="KinopoiskFilmPostersUrlPattern" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">http://www.kinopoisk.ru/film/{0}/posters/</Value>
+    </Setting>
+    <Setting Name="KinopoiskFilmRelatedUrlPattern" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">http://www.kinopoisk.ru/film/{0}/like/</Value>
+    </Setting>
+    <Setting Name="RelatedMoviesPattern" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">&lt;a style="font-size: 13px; font-weight: bold" href="/film/(?&lt;KinopoiskId&gt;[0-9]+)/" class="all"&gt;</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

@@ -18,16 +18,18 @@ namespace KinopoiskLib
         public static KinopoiskFilm Search(long kinopoiskId)
         {
             string detailsPage = null;
-            string castPage = null;
+            string actorsPage = null;
             string postersPage = null;
+            string relatedMoviesPage = null;
 
             Parallel.Invoke(
-                () => detailsPage = DownloadHtml("http://www.kinopoisk.ru/film/" + kinopoiskId),
-                () => castPage = DownloadHtml(string.Format("http://www.kinopoisk.ru/film/{0}/cast/", kinopoiskId)),
-                () => postersPage = DownloadHtml(string.Format("http://www.kinopoisk.ru/film/{0}/posters/", kinopoiskId))
+                () => detailsPage = DownloadHtml(string.Format(Settings.Default.KinopoiskFilmDetailUrlPattern, kinopoiskId)),
+                () => actorsPage = DownloadHtml(string.Format(Settings.Default.KinopoiskFilmActorsUrlPattern, kinopoiskId)),
+                () => postersPage = DownloadHtml(string.Format(Settings.Default.KinopoiskFilmPostersUrlPattern, kinopoiskId)),
+                () => relatedMoviesPage = DownloadHtml(string.Format(Settings.Default.KinopoiskFilmRelatedUrlPattern, kinopoiskId))
             );
 
-            return new KinopoiskFilm(kinopoiskId, detailsPage, castPage, postersPage);
+            return new KinopoiskFilm(kinopoiskId, detailsPage, actorsPage, postersPage, relatedMoviesPage);
         }
 
         private static string DownloadHtml(string url)

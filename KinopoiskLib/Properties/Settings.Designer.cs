@@ -123,5 +123,51 @@ namespace KinopoiskLib.Properties {
                 return ((string)(this["PhotoUrlPattern"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://www.kinopoisk.ru/film/{0}")]
+        public string KinopoiskFilmDetailUrlPattern {
+            get {
+                return ((string)(this["KinopoiskFilmDetailUrlPattern"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://www.kinopoisk.ru/film/{0}/cast/")]
+        public string KinopoiskFilmActorsUrlPattern {
+            get {
+                return ((string)(this["KinopoiskFilmActorsUrlPattern"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://www.kinopoisk.ru/film/{0}/posters/")]
+        public string KinopoiskFilmPostersUrlPattern {
+            get {
+                return ((string)(this["KinopoiskFilmPostersUrlPattern"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://www.kinopoisk.ru/film/{0}/like/")]
+        public string KinopoiskFilmRelatedUrlPattern {
+            get {
+                return ((string)(this["KinopoiskFilmRelatedUrlPattern"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("<a style=\"font-size: 13px; font-weight: bold\" href=\"/film/(?<KinopoiskId>[0-9]+)/" +
+            "\" class=\"all\">")]
+        public string RelatedMoviesPattern {
+            get {
+                return ((string)(this["RelatedMoviesPattern"]));
+            }
+        }
     }
 }
