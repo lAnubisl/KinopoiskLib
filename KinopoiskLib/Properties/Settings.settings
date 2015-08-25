@@ -18,13 +18,13 @@
       <Value Profile="(Default)">&lt;a href="/level/8/view/prem/year/[0-9]+/#[0-9]+"&gt;(?&lt;ReleaseDate&gt;[^/]*)&lt;/a&gt;</Value>
     </Setting>
     <Setting Name="GenrePattern" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">&lt;a href="/lists/m_act%5Bgenre%5D/[0-9]+/" &gt;(?&lt;Genre&gt;[а-я]+)&lt;/a&gt;</Value>
+      <Value Profile="(Default)">&lt;a href="/lists/m_act%5Bgenre%5D/[0-9]+/"&gt;(?&lt;Genre&gt;[а-я]+)&lt;/a&gt;</Value>
     </Setting>
     <Setting Name="KinopoiskSearchUrlPattern" Type="System.String" Scope="Application">
       <Value Profile="(Default)">http://www.kinopoisk.ru/index.php?first=yes&amp;kp_query={0}</Value>
     </Setting>
     <Setting Name="PosterUrlPattern" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">http://st.kinopoisk.ru/images/poster/sm_(?&lt;PosterId&gt;[0-9]+).jpg</Value>
+      <Value Profile="(Default)">http://st.kp.yandex.net/images/poster/sm_(?&lt;PosterId&gt;[0-9]+).jpg</Value>
     </Setting>
     <Setting Name="PersonPattern" Type="System.String" Scope="Application">
       <Value Profile="(Default)">&lt;a href="/name/(?&lt;PersonId&gt;[0-9]+)/"&gt;(?&lt;RussianName&gt;[^&lt;]+)&lt;/a&gt; &lt;span class="gray"&gt;(?&lt;EnglishName&gt;[^&lt;]+)&lt;/span&gt;</Value>
@@ -49,6 +49,15 @@
     </Setting>
     <Setting Name="RelatedMoviesPattern" Type="System.String" Scope="Application">
       <Value Profile="(Default)">&lt;a style="font-size: 13px; font-weight: bold" href="/film/(?&lt;KinopoiskId&gt;[0-9]+)/" class="all"&gt;</Value>
+    </Setting>
+    <Setting Name="DurationPattern" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">&lt;td class="time" id="runtime"&gt;(?&lt;Duration&gt;[0-9]+) мин.</Value>
+    </Setting>
+    <Setting Name="AgeLimitPattern" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">ageLimit age(?&lt;AgeLimit&gt;[0-9]+)</Value>
+    </Setting>
+    <Setting Name="MPAAPattern" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">http://st.kp.yandex.net/images/mpaa/(?&lt;Rating&gt;[^\.]+).gif</Value>
     </Setting>
   </Settings>
 </SettingsFile>

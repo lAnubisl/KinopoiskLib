@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Web;
@@ -12,7 +13,10 @@ namespace KinopoiskLib
         private readonly long kinopoiskId;
         private readonly string russianTitle,
                                 originalTitle,
-                                description;
+                                description,
+                                mpaa;
+
+        private readonly int durationMinutes, ageLimit;
 
         private readonly IList<KinopoiskPerson> persons;
         private readonly IList<KinopoiskPoster> posters;
@@ -37,13 +41,13 @@ namespace KinopoiskLib
             var date = GetValue(kinopoiskHtmlPage, Settings.Default.ReleaseDateRusPattern, "ReleaseDate");
             if (date != null)
             {
-                this.releaseDate = DateTime.Parse(date);
+                this.releaseDate = DateTime.ParseExact(date, "d MMMM yyyy", CultureInfo.GetCultureInfo("ru-RU"));
             }
 
             date = GetValue(kinopoiskHtmlPage, Settings.Default.ReleaseDatePattern, "ReleaseDate");
             if (date != null)
             {
-                this.releaseDate = DateTime.Parse(date);
+                this.releaseDate = DateTime.ParseExact(date, "d MMMM yyyy", CultureInfo.GetCultureInfo("ru-RU")); ;
             }
 
             this.genres = new List<string>();
@@ -74,6 +78,10 @@ namespace KinopoiskLib
             {
                 this.relatedFilms.Add(Convert.ToInt64(match.Groups["KinopoiskId"].Value));
             }
+
+            this.durationMinutes = Convert.ToInt32(GetValue(kinopoiskHtmlPage, Settings.Default.DurationPattern, "Duration"));
+            this.ageLimit = Convert.ToInt32(GetValue(kinopoiskHtmlPage, Settings.Default.AgeLimitPattern, "AgeLimit"));
+            this.mpaa = GetValue(kinopoiskHtmlPage, Settings.Default.MPAAPattern, "Rating");
         }
 
         public IList<long> RelatedFilms
