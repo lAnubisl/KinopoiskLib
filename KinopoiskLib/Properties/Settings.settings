@@ -27,7 +27,7 @@
       <Value Profile="(Default)">http://st.kp.yandex.net/images/poster/sm_(?&lt;PosterId&gt;[0-9]+).jpg</Value>
     </Setting>
     <Setting Name="PersonPattern" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">&lt;a href="/name/(?&lt;PersonId&gt;[0-9]+)/"&gt;(?&lt;RussianName&gt;[^&lt;]+)&lt;/a&gt; &lt;span class="gray"&gt;(?&lt;EnglishName&gt;[^&lt;]+)&lt;/span&gt;</Value>
+      <Value Profile="(Default)">&lt;a href=\"/name/(?&lt;PersonId&gt;[0-9]+)/\"&gt;(?&lt;RussianName&gt;[^&lt;]+)&lt;/a&gt; &lt;span class=\"gray\"&gt;(?&lt;EnglishName&gt;[^&lt;]+)&lt;/span&gt;&lt;/div&gt;[^&lt;]+&lt;div class=\"role\"&gt;(... )?(?&lt;Role&gt;[^&lt;]+)?</Value>
     </Setting>
     <Setting Name="DepartmentPattern" Type="System.String" Scope="Application">
       <Value Profile="(Default)">&lt;div style="padding-left: 20px; border-bottom: 2px solid #f60; font-size: 16px"&gt;(?&lt;Department&gt;[^&lt;]+)&lt;/div&gt;</Value>

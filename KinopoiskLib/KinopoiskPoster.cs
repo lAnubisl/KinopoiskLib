@@ -9,14 +9,11 @@
             this.posterId = posterId;
         }
 
-        public string Url
-        {
-            get { return string.Format("http://tr-by.kinopoisk.ru/images/poster/{0}.jpg", this.posterId); }
-        }
+        public string Url => $"http://tr-by.kinopoisk.ru/images/poster/{posterId}.jpg";
 
         public override string ToString()
         {
-            return this.Url;
+            return Url;
         }
     }
 }

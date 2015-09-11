@@ -17,17 +17,17 @@ namespace KinopoiskLib
 
         public static KinopoiskFilm Search(long kinopoiskId)
         {
-            string detailsPage = null;
-            string actorsPage = null;
-            string postersPage = null;
-            string relatedMoviesPage = null;
+            string detailsPage = DownloadHtml(string.Format(Settings.Default.KinopoiskFilmDetailUrlPattern, kinopoiskId));
+            string actorsPage = DownloadHtml(string.Format(Settings.Default.KinopoiskFilmActorsUrlPattern, kinopoiskId));
+            string postersPage = DownloadHtml(string.Format(Settings.Default.KinopoiskFilmPostersUrlPattern, kinopoiskId));
+            string relatedMoviesPage = DownloadHtml(string.Format(Settings.Default.KinopoiskFilmRelatedUrlPattern, kinopoiskId));
 
-            Parallel.Invoke(
-                () => detailsPage = DownloadHtml(string.Format(Settings.Default.KinopoiskFilmDetailUrlPattern, kinopoiskId)),
-                () => actorsPage = DownloadHtml(string.Format(Settings.Default.KinopoiskFilmActorsUrlPattern, kinopoiskId)),
-                () => postersPage = DownloadHtml(string.Format(Settings.Default.KinopoiskFilmPostersUrlPattern, kinopoiskId)),
-                () => relatedMoviesPage = DownloadHtml(string.Format(Settings.Default.KinopoiskFilmRelatedUrlPattern, kinopoiskId))
-            );
+            //Parallel.Invoke(
+            //    () => detailsPage = DownloadHtml(string.Format(Settings.Default.KinopoiskFilmDetailUrlPattern, kinopoiskId)),
+            //    () => actorsPage = DownloadHtml(string.Format(Settings.Default.KinopoiskFilmActorsUrlPattern, kinopoiskId)),
+            //    () => postersPage = DownloadHtml(string.Format(Settings.Default.KinopoiskFilmPostersUrlPattern, kinopoiskId)),
+            //    () => relatedMoviesPage = DownloadHtml(string.Format(Settings.Default.KinopoiskFilmRelatedUrlPattern, kinopoiskId))
+            //);
 
             return new KinopoiskFilm(kinopoiskId, detailsPage, actorsPage, postersPage, relatedMoviesPage);
         }

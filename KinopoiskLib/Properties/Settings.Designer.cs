@@ -97,8 +97,9 @@ namespace KinopoiskLib.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("<a href=\"/name/(?<PersonId>[0-9]+)/\">(?<RussianName>[^<]+)</a> <span class=\"gray\"" +
-            ">(?<EnglishName>[^<]+)</span>")]
+        [global::System.Configuration.DefaultSettingValueAttribute("<a href=\\\"/name/(?<PersonId>[0-9]+)/\\\">(?<RussianName>[^<]+)</a> <span class=\\\"gr" +
+            "ay\\\">(?<EnglishName>[^<]+)</span></div>[^<]+<div class=\\\"role\\\">(... )?(?<Role>[" +
+            "^<]+)?")]
         public string PersonPattern {
             get {
                 return ((string)(this["PersonPattern"]));

@@ -7,40 +7,34 @@ namespace KinopoiskLib
 {
     public class KinopoiskPerson
     {
-        private readonly long kinopoiskId;
-        private readonly string englishName, russianName, department;
-
         internal KinopoiskPerson(Match match, string department)
         {
-            this.kinopoiskId = Convert.ToInt64(match.Groups["PersonId"].Value);
-            this.department = department;
-            this.russianName = HttpUtility.HtmlDecode(match.Groups["RussianName"].Value).Trim();
-            this.englishName = HttpUtility.HtmlDecode(match.Groups["EnglishName"].Value).Trim();
+            KinopoiskId = Convert.ToInt64(match.Groups["PersonId"].Value);
+            Department = department;
+            RussianName = HttpUtility.HtmlDecode(match.Groups["RussianName"].Value).Trim();
+            EnglishName = HttpUtility.HtmlDecode(match.Groups["EnglishName"].Value).Trim();
+            Role = HttpUtility.HtmlDecode(match.Groups["Role"].Value).Trim();
+            if (string.IsNullOrWhiteSpace(Role))
+            {
+                Role = null;
+            }
         }
 
-        public string EnglishName
-        {
-            get { return this.englishName; }
-        }
+        public string EnglishName { get; }
 
-        public string RussianName
-        {
-            get { return this.russianName; }
-        }
+        public string RussianName { get; }
 
-        public string Department
-        {
-            get { return this.department; }
-        }
+        public string Department { get; }
 
-        public string PhotoURL
-        {
-            get { return string.Format(Settings.Default.PhotoUrlPattern, this.kinopoiskId); }
-        }
+        public string Role { get; }
+
+        public string PhotoURL => string.Format(Settings.Default.PhotoUrlPattern, KinopoiskId);
+
+        public long KinopoiskId { get; }
 
         public override string ToString()
         {
-            return string.Format("{0}/{1}", this.englishName, this.russianName);
+            return $"{this.EnglishName}/{this.RussianName}";
         }
     }
 }
