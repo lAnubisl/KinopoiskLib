@@ -1,4 +1,4 @@
 KinopoiskLib
 ============
 
-API to search movies from www.kinopoisk.ru!
+API to search movies from www.kinopoisk.ru
